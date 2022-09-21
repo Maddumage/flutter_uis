@@ -1,6 +1,6 @@
 # flutter_uis
 
-#Projects
+# Projects
 * Grocery Store 
-![alt text](https://github.com/Maddumage/flutter_uis/grocery-store/assets/images/desing.png?raw=true)
+![alt text](https://github.com/Maddumage/flutter_uis/blob/master/grocery-store/assets/images/design.png)
 
