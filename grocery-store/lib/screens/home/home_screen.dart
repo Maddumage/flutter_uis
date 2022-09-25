@@ -1,7 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:grocery_store/screens/home/banners.dart';
+import 'package:grocery_store/screens/home/categories.dart';
+import 'package:grocery_store/screens/home/popular_items.dart';
 import 'package:grocery_store/screens/home/search_bar.dart';
+
+import '../../components/section_title.dart';
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({Key? key}) : super(key: key);
@@ -55,15 +59,28 @@ class _HomeScreenState extends State<HomeScreen> {
           ),
         ],
       ),
-      body: Column(
-        children: [
+      body: CustomScrollView(
+        slivers: [
           //search bar
-          SearchBar(controller: _controller),
+          SliverToBoxAdapter(child: SearchBar(controller: _controller)),
           // banners
-          const Banners(),
+          const SliverToBoxAdapter(child: Banners()),
           // categories
-
+          SliverToBoxAdapter(
+            child: SectionTitle(
+              title: 'Categories',
+              onPress: () {},
+            ),
+          ),
+          const SliverToBoxAdapter(child: Categories()),
           //popular items
+          SliverToBoxAdapter(
+            child: SectionTitle(
+              title: 'Popular',
+              onPress: () {},
+            ),
+          ),
+          const PopularItems(),
         ],
       ),
     );

@@ -18,7 +18,6 @@ class Banners extends StatefulWidget {
 }
 
 class _BannersState extends State<Banners> {
-  int _current = 0;
   final CarouselController _controller = CarouselController();
 
   final List<BannerItem> itemList = [
@@ -28,37 +27,21 @@ class _BannersState extends State<Banners> {
         'https://images.unsplash.com/photo-1457347876270-97799484c564?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1169&q=80')
   ];
 
-  Widget _buildItem(BannerItem item) {
-    return BannerCard(bannerItem: item);
-  }
-
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: const EdgeInsets.symmetric(
-        horizontal: 20.0,
-        vertical: 8,
-      ),
-      child: Column(
-        children: [
-          CarouselSlider(
-            items: itemList.map((e) => _buildItem(e)).toList(),
-            options: CarouselOptions(
-              autoPlay: true,
-              enlargeCenterPage: false,
-              viewportFraction: 0.95,
-              aspectRatio: 2.5,
-              initialPage: 1,
-              disableCenter: true,
-              onPageChanged: (index, item) {
-                setState(() {
-                  _current = index;
-                });
-              },
-            ),
-            carouselController: _controller,
-          ),
-        ],
+      padding: const EdgeInsets.symmetric(vertical: 8.0),
+      child: CarouselSlider(
+        items: itemList.map((e) => BannerCard(bannerItem: e)).toList(),
+        options: CarouselOptions(
+          autoPlay: true,
+          enlargeCenterPage: false,
+          viewportFraction: 0.9,
+          aspectRatio: 2.5,
+          initialPage: 1,
+          disableCenter: true,
+        ),
+        carouselController: _controller,
       ),
     );
   }

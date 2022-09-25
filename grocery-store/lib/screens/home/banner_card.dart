@@ -9,13 +9,14 @@ class BannerCard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      margin: const EdgeInsets.only(right: 8),
+      margin: const EdgeInsets.only(right: 20),
       decoration: BoxDecoration(
         borderRadius: BorderRadius.circular(10),
         image: DecorationImage(
           image: NetworkImage(bannerItem.imgUrl),
           fit: BoxFit.cover,
         ),
+        color: Colors.grey.shade50,
       ),
       child: Row(
         children: [

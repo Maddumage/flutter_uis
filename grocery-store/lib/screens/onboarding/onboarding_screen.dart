@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:grocery_store/screens/home/home_screen.dart';
+import 'package:grocery_store/screens/app.dart';
 import 'package:grocery_store/screens/onboarding/custom_clip_path.dart';
 import 'package:grocery_store/screens/onboarding/slider.dart';
 
@@ -51,8 +51,7 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
                       onPress: () {
                         Navigator.push(
                           context,
-                          MaterialPageRoute(
-                              builder: (context) => const HomeScreen()),
+                          MaterialPageRoute(builder: (context) => const App()),
                         );
                       },
                     )
