@@ -4,6 +4,7 @@ import 'package:grocery_store/screens/home/banners.dart';
 import 'package:grocery_store/screens/home/categories.dart';
 import 'package:grocery_store/screens/home/popular_items.dart';
 import 'package:grocery_store/screens/home/search_bar.dart';
+import 'package:grocery_store/screens/productdetails/product_details.dart';
 
 import '../../components/section_title.dart';
 
@@ -80,7 +81,14 @@ class _HomeScreenState extends State<HomeScreen> {
               onPress: () {},
             ),
           ),
-          const PopularItems(),
+          PopularItems(
+            onPress: () {
+              Navigator.push(
+                context,
+                MaterialPageRoute(builder: (context) => const ProductDetails()),
+              );
+            },
+          ),
         ],
       ),
     );
