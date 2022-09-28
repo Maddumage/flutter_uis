@@ -4,19 +4,19 @@ class SectionTitle extends StatelessWidget {
   const SectionTitle({
     Key? key,
     required this.title,
-    this.buttonText = 'See all',
-    required this.onPress,
+    this.buttonText,
+    this.onPress,
   }) : super(key: key);
 
   final String title;
-  final String buttonText;
-  final Function() onPress;
+  final String? buttonText;
+  final Function()? onPress;
 
   @override
   Widget build(BuildContext context) {
     return Container(
       width: MediaQuery.of(context).size.width,
-      margin: const EdgeInsets.symmetric(horizontal: 20, vertical: 8),
+      margin: const EdgeInsets.symmetric(horizontal: 0, vertical: 8),
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         crossAxisAlignment: CrossAxisAlignment.center,
@@ -37,7 +37,7 @@ class SectionTitle extends StatelessWidget {
               tapTargetSize: MaterialTapTargetSize.shrinkWrap,
             ),
             child: Text(
-              buttonText,
+              buttonText ?? '',
               style: const TextStyle(
                 color: Colors.green,
               ),

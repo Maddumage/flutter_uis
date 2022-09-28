@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_rating_bar/flutter_rating_bar.dart';
+import 'package:grocery_store/components/section_title.dart';
 
 import '../../components/flat_button.dart';
 import '../../utils/constants.dart';
@@ -39,111 +40,17 @@ class _ProductDetailsState extends State<ProductDetails> {
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.center,
                     children: [
-                      Row(
-                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                        crossAxisAlignment: CrossAxisAlignment.center,
-                        children: [
-                          Column(
-                            mainAxisAlignment: MainAxisAlignment.start,
-                            crossAxisAlignment: CrossAxisAlignment.start,
-                            children: [
-                              const Text(
-                                'Fresh Natural Orange',
-                                style: TextStyle(
-                                  color: Colors.black87,
-                                  fontWeight: FontWeight.bold,
-                                  fontSize: 20,
-                                ),
-                              ),
-                              Row(
-                                // mainAxisAlignment: MainAxisAlignment.start,
-                                // crossAxisAlignment: CrossAxisAlignment.start,
-                                children: [
-                                  RatingBar.builder(
-                                    initialRating: 4.4,
-                                    minRating: 1,
-                                    direction: Axis.horizontal,
-                                    allowHalfRating: true,
-                                    itemCount: 5,
-                                    itemSize: 20,
-                                    unratedColor: Colors.grey.shade500,
-                                    itemBuilder: (context, _) => const Icon(
-                                      Icons.star,
-                                      color: Colors.amber,
-                                      size: 10,
-                                    ),
-                                    onRatingUpdate: (rating) {
-                                      print(rating);
-                                    },
-                                  ),
-                                  Text(
-                                    '(4.4)',
-                                    style: TextStyle(
-                                      color: Colors.grey.shade500,
-                                      fontWeight: FontWeight.w500,
-                                      fontSize: 14,
-                                    ),
-                                  )
-                                ],
-                              ),
-                            ],
-                          ),
-                          Row(
-                            mainAxisAlignment: MainAxisAlignment.center,
-                            crossAxisAlignment: CrossAxisAlignment.center,
-                            children: [
-                              Container(
-                                width: 40,
-                                height: 40,
-                                padding: const EdgeInsets.all(4),
-                                alignment: Alignment.center,
-                                decoration: const ShapeDecoration(
-                                  color: Colors.green,
-                                  shape: RoundedRectangleBorder(),
-                                ),
-                                child: Center(
-                                  child: IconButton(
-                                    icon: const Icon(
-                                      Icons.remove,
-                                      size: 20,
-                                    ),
-                                    color: Colors.white,
-                                    onPressed: () {},
-                                  ),
-                                ),
-                              ),
-                              Text(
-                                '/kg',
-                                style: TextStyle(
-                                  color: Colors.black87,
-                                  fontWeight: FontWeight.w500,
-                                  fontSize: 14,
-                                ),
-                              ),
-                              Container(
-                                width: 30,
-                                height: 30,
-                                padding: const EdgeInsets.all(4),
-                                alignment: Alignment.center,
-                                decoration: const ShapeDecoration(
-                                  color: Colors.green,
-                                  shape: RoundedRectangleBorder(),
-                                ),
-                                child: Center(
-                                  child: IconButton(
-                                    icon: const Icon(
-                                      Icons.add,
-                                      size: 20,
-                                    ),
-                                    color: Colors.white,
-                                    onPressed: () {},
-                                  ),
-                                ),
-                              ),
-                            ],
-                          ),
-                        ],
+                      const ProductTitleBar(),
+                      const SectionTitle(title: 'Descriptions'),
+                      Text(
+                        'In publishing and graphic design, Lorem ipsum is a placeholder text commonly used to demonstrate the visual form of a document or a typeface without relying on meaningful content. Lorem ipsum may be used as a placeholder before final copy is available.',
+                        style: TextStyle(
+                          color: Colors.grey.shade500,
+                          fontWeight: FontWeight.w500,
+                          fontSize: 12,
+                        ),
                       ),
+                      const SectionTitle(title: 'Similar Products'),
                       FlatButton(
                         title: 'Get Started',
                         onPress: () {
@@ -238,6 +145,118 @@ class _ProductDetailsState extends State<ProductDetails> {
           ),
         ),
       ),
+    );
+  }
+}
+
+class ProductTitleBar extends StatelessWidget {
+  const ProductTitleBar({
+    Key? key,
+  }) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return Row(
+      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+      crossAxisAlignment: CrossAxisAlignment.center,
+      children: [
+        Column(
+          mainAxisAlignment: MainAxisAlignment.start,
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            const Text(
+              'Fresh Natural Orange',
+              style: TextStyle(
+                color: Colors.black87,
+                fontWeight: FontWeight.bold,
+                fontSize: 20,
+              ),
+            ),
+            Row(
+              // mainAxisAlignment: MainAxisAlignment.start,
+              // crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                RatingBar.builder(
+                  initialRating: 4.4,
+                  minRating: 1,
+                  direction: Axis.horizontal,
+                  allowHalfRating: true,
+                  itemCount: 5,
+                  itemSize: 20,
+                  unratedColor: Colors.grey.shade500,
+                  itemBuilder: (context, _) => const Icon(
+                    Icons.star,
+                    color: Colors.amber,
+                    size: 10,
+                  ),
+                  onRatingUpdate: (rating) {
+                    print(rating);
+                  },
+                ),
+                Text(
+                  '(4.4)',
+                  style: TextStyle(
+                    color: Colors.grey.shade500,
+                    fontWeight: FontWeight.w500,
+                    fontSize: 14,
+                  ),
+                )
+              ],
+            ),
+          ],
+        ),
+        Row(
+          mainAxisAlignment: MainAxisAlignment.center,
+          crossAxisAlignment: CrossAxisAlignment.center,
+          children: [
+            Container(
+              width: 30,
+              height: 30,
+              alignment: Alignment.center,
+              decoration: BoxDecoration(
+                borderRadius: BorderRadius.circular(10),
+                color: Colors.green,
+              ),
+              child: IconButton(
+                icon: const Icon(
+                  Icons.remove,
+                  size: 14,
+                ),
+                color: Colors.white,
+                onPressed: () {},
+              ),
+            ),
+            const Padding(
+              padding: EdgeInsets.symmetric(horizontal: 4),
+              child: Text(
+                '2 Kg',
+                style: TextStyle(
+                  color: Colors.black87,
+                  fontWeight: FontWeight.w500,
+                  fontSize: 14,
+                ),
+              ),
+            ),
+            Container(
+              width: 30,
+              height: 30,
+              alignment: Alignment.center,
+              decoration: BoxDecoration(
+                borderRadius: BorderRadius.circular(10),
+                color: Colors.green,
+              ),
+              child: IconButton(
+                icon: const Icon(
+                  Icons.add,
+                  size: 14,
+                ),
+                color: Colors.white,
+                onPressed: () {},
+              ),
+            ),
+          ],
+        ),
+      ],
     );
   }
 }
