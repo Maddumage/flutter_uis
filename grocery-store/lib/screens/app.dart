@@ -17,15 +17,15 @@ class _AppState extends State<App> {
   static const List<Widget> _widgetOptions = <Widget>[
     HomeScreen(),
     Text(
-      'Index 1: Business',
+      'Favorites',
       style: optionStyle,
     ),
     Text(
-      'Index 2: School',
+      'Cart',
       style: optionStyle,
     ),
     Text(
-      'Index 2: School',
+      'Profile',
       style: optionStyle,
     ),
   ];

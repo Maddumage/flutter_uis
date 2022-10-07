@@ -94,7 +94,7 @@ class _ProductDetailsState extends State<ProductDetails> {
                   child: Container(
                     width: w,
                     height: w * 0.9,
-                    color: Colors.teal,
+                    color: const Color(0xFFF9F0E8),
                     padding: EdgeInsets.only(top: w * 0.3),
                     alignment: Alignment.topCenter,
                     child: Image.asset(
@@ -137,6 +137,60 @@ class _ProductDetailsState extends State<ProductDetails> {
                           fontSize: 14,
                         ),
                       )
+                    ],
+                  ),
+                ),
+              ),
+              Positioned(
+                bottom: 0,
+                height: 100,
+                width: MediaQuery.of(context).size.width,
+                child: Container(
+                  padding: const EdgeInsets.only(left: 20),
+                  decoration: const BoxDecoration(
+                    boxShadow: [kBoxShadow],
+                    color: Colors.white,
+                  ),
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    crossAxisAlignment: CrossAxisAlignment.center,
+                    children: [
+                      Column(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: const [
+                          Text(
+                            'Total',
+                            style: TextStyle(
+                              color: Colors.black,
+                              fontSize: 16,
+                              fontWeight: FontWeight.bold,
+                            ),
+                          ),
+                          SizedBox(
+                            height: 4,
+                          ),
+                          Text(
+                            '\$120.50',
+                            style: TextStyle(
+                              color: Colors.green,
+                              fontSize: 18,
+                              fontWeight: FontWeight.bold,
+                            ),
+                          ),
+                        ],
+                      ),
+                      FlatButton(
+                        title: 'Add Cart',
+                        width: 150,
+                        onPress: () {
+                          Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                                builder: (context) => const App()),
+                          );
+                        },
+                      ),
                     ],
                   ),
                 ),

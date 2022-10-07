@@ -71,6 +71,7 @@ class _HomeScreenState extends State<HomeScreen> {
             child: SectionTitle(
               title: 'Categories',
               onPress: () {},
+              buttonText: 'See all',
             ),
           ),
           const SliverToBoxAdapter(child: Categories()),
@@ -79,6 +80,7 @@ class _HomeScreenState extends State<HomeScreen> {
             child: SectionTitle(
               title: 'Popular',
               onPress: () {},
+              buttonText: 'See all',
             ),
           ),
           PopularItems(

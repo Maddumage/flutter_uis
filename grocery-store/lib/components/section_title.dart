@@ -16,7 +16,7 @@ class SectionTitle extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       width: MediaQuery.of(context).size.width,
-      margin: const EdgeInsets.symmetric(horizontal: 0, vertical: 8),
+      margin: const EdgeInsets.symmetric(horizontal: 20, vertical: 8),
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         crossAxisAlignment: CrossAxisAlignment.center,
@@ -29,20 +29,22 @@ class SectionTitle extends StatelessWidget {
               fontSize: 18,
             ),
           ),
-          TextButton(
-            onPressed: onPress,
-            style: TextButton.styleFrom(
-              padding: const EdgeInsets.only(left: 16),
-              minimumSize: const Size(50, 30),
-              tapTargetSize: MaterialTapTargetSize.shrinkWrap,
-            ),
-            child: Text(
-              buttonText ?? '',
-              style: const TextStyle(
-                color: Colors.green,
-              ),
-            ),
-          ),
+          buttonText != null
+              ? TextButton(
+                  onPressed: onPress,
+                  style: TextButton.styleFrom(
+                    padding: const EdgeInsets.only(left: 16),
+                    minimumSize: const Size(50, 30),
+                    tapTargetSize: MaterialTapTargetSize.shrinkWrap,
+                  ),
+                  child: Text(
+                    buttonText!,
+                    style: const TextStyle(
+                      color: Colors.green,
+                    ),
+                  ),
+                )
+              : const SizedBox(),
         ],
       ),
     );
