@@ -16,6 +16,7 @@ dependencies:
   carousel_slider: ^4.1.1
   flutter_svg: ^1.1.5
   flutter_rating_bar: ^4.0.1
+  readmore: ^2.2.0
 
 dev_dependencies:
   flutter_test:

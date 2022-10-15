@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 
+import '../utils/constants.dart';
+
 class SectionTitle extends StatelessWidget {
   const SectionTitle({
     Key? key,
@@ -14,27 +16,28 @@ class SectionTitle extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    double defaultSize = MediaQuery.of(context).size.width * kDefaultSizeFactor;
     return Container(
       width: MediaQuery.of(context).size.width,
-      margin: const EdgeInsets.symmetric(horizontal: 20, vertical: 8),
+      margin: EdgeInsets.symmetric(horizontal: 0, vertical: defaultSize * 8),
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         crossAxisAlignment: CrossAxisAlignment.center,
         children: [
           Text(
             title,
-            style: const TextStyle(
+            style: TextStyle(
               color: Colors.black87,
               fontWeight: FontWeight.w700,
-              fontSize: 18,
+              fontSize: defaultSize * 18,
             ),
           ),
           buttonText != null
               ? TextButton(
                   onPressed: onPress,
                   style: TextButton.styleFrom(
-                    padding: const EdgeInsets.only(left: 16),
-                    minimumSize: const Size(50, 30),
+                    padding: EdgeInsets.only(left: defaultSize * 16),
+                    minimumSize: Size(defaultSize * 50, defaultSize * 30),
                     tapTargetSize: MaterialTapTargetSize.shrinkWrap,
                   ),
                   child: Text(

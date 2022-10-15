@@ -14,13 +14,14 @@ class PopularItems extends StatefulWidget {
 class _PopularItemsState extends State<PopularItems> {
   @override
   Widget build(BuildContext context) {
+    double defaultSize = MediaQuery.of(context).size.width * kDefaultSizeFactor;
     return SliverPadding(
-      padding: const EdgeInsets.symmetric(horizontal: 20),
+      padding: EdgeInsets.symmetric(horizontal: defaultSize * 20),
       sliver: SliverGrid(
-        gridDelegate: const SliverGridDelegateWithMaxCrossAxisExtent(
-          maxCrossAxisExtent: 200.0,
-          mainAxisSpacing: 10.0,
-          crossAxisSpacing: 10.0,
+        gridDelegate: SliverGridDelegateWithMaxCrossAxisExtent(
+          maxCrossAxisExtent: defaultSize * 200.0,
+          mainAxisSpacing: defaultSize * 10.0,
+          crossAxisSpacing: defaultSize * 10.0,
           childAspectRatio: 0.75,
         ),
         delegate: SliverChildBuilderDelegate(
@@ -31,7 +32,7 @@ class _PopularItemsState extends State<PopularItems> {
               },
               child: Container(
                 decoration: BoxDecoration(
-                  borderRadius: BorderRadius.circular(10),
+                  borderRadius: BorderRadius.circular(defaultSize * 8),
                   boxShadow: const [
                     kBoxShadow,
                   ],
@@ -58,18 +59,18 @@ class _PopularItemsState extends State<PopularItems> {
                       ),
                     ),
                     Positioned(
-                      bottom: 4,
-                      left: 4,
-                      right: 4,
+                      bottom: defaultSize * 4,
+                      left: defaultSize * 4,
+                      right: defaultSize * 4,
                       child: Container(
-                        height: 50,
-                        padding: const EdgeInsets.only(
-                          top: 8,
-                          left: 8,
-                          bottom: 8,
+                        height: defaultSize * 50,
+                        padding: EdgeInsets.only(
+                          top: defaultSize * 8,
+                          left: defaultSize * 8,
+                          bottom: defaultSize * 8,
                         ),
                         decoration: BoxDecoration(
-                          borderRadius: BorderRadius.circular(10),
+                          borderRadius: BorderRadius.circular(defaultSize * 8),
                           color: kLightAccentColor,
                         ),
                         child: Row(
@@ -80,8 +81,8 @@ class _PopularItemsState extends State<PopularItems> {
                               child: Column(
                                 mainAxisAlignment: MainAxisAlignment.center,
                                 crossAxisAlignment: CrossAxisAlignment.start,
-                                children: const [
-                                  Text(
+                                children: [
+                                  const Text(
                                     'Apple',
                                     style: TextStyle(
                                       color: Colors.black87,
@@ -93,7 +94,7 @@ class _PopularItemsState extends State<PopularItems> {
                                     style: TextStyle(
                                       color: Colors.black87,
                                       fontWeight: FontWeight.normal,
-                                      fontSize: 12,
+                                      fontSize: defaultSize * 12,
                                     ),
                                   ),
                                 ],
@@ -101,19 +102,19 @@ class _PopularItemsState extends State<PopularItems> {
                             ),
                             Container(
                               alignment: Alignment.center,
-                              width: 30,
-                              height: 30,
-                              decoration: const BoxDecoration(
+                              width: defaultSize * 30,
+                              height: defaultSize * 30,
+                              decoration: BoxDecoration(
                                 borderRadius: BorderRadius.only(
-                                  topLeft: Radius.circular(10),
-                                  bottomLeft: Radius.circular(10),
+                                  topLeft: Radius.circular(defaultSize * 10),
+                                  bottomLeft: Radius.circular(defaultSize * 10),
                                 ),
                                 color: kAccentColor,
                               ),
-                              child: const Icon(
+                              child: Icon(
                                 Icons.add,
                                 color: kLightIconColor,
-                                size: 18,
+                                size: defaultSize * 18,
                               ),
                             ),
                           ],

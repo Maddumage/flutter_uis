@@ -7,6 +7,7 @@ import 'package:grocery_store/screens/home/search_bar.dart';
 import 'package:grocery_store/screens/productdetails/product_details.dart';
 
 import '../../components/section_title.dart';
+import '../../utils/constants.dart';
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({Key? key}) : super(key: key);
@@ -32,25 +33,26 @@ class _HomeScreenState extends State<HomeScreen> {
 
   @override
   Widget build(BuildContext context) {
+    double defaultSize = MediaQuery.of(context).size.width * kDefaultSizeFactor;
     return Scaffold(
       backgroundColor: Colors.grey.shade50,
       appBar: AppBar(
         backgroundColor: Colors.grey.shade50,
         elevation: 0,
         leading: Padding(
-          padding: const EdgeInsets.only(left: 8),
+          padding: EdgeInsets.only(left: defaultSize * 8),
           child: IconButton(
             icon: SvgPicture.asset(
               'assets/icons/dot_menu.svg',
-              width: 24,
-              height: 24,
+              width: defaultSize * 24,
+              height: defaultSize * 24,
             ),
             onPressed: () {},
           ),
         ),
         actions: [
           Padding(
-            padding: const EdgeInsets.only(right: 8),
+            padding: EdgeInsets.only(right: defaultSize * 8),
             child: IconButton(
               icon: SvgPicture.asset(
                 'assets/icons/bell.svg',
@@ -67,27 +69,38 @@ class _HomeScreenState extends State<HomeScreen> {
           // banners
           const SliverToBoxAdapter(child: Banners()),
           // categories
-          SliverToBoxAdapter(
-            child: SectionTitle(
-              title: 'Categories',
-              onPress: () {},
-              buttonText: 'See all',
+          SliverPadding(
+            padding: EdgeInsets.symmetric(horizontal: defaultSize * 20),
+            sliver: SliverToBoxAdapter(
+              child: SectionTitle(
+                title: 'Categories',
+                onPress: () {},
+                buttonText: 'See all',
+              ),
             ),
           ),
-          const SliverToBoxAdapter(child: Categories()),
+          SliverPadding(
+            padding: EdgeInsets.only(left: defaultSize * 20),
+            sliver: const SliverToBoxAdapter(child: Categories()),
+          ),
           //popular items
-          SliverToBoxAdapter(
-            child: SectionTitle(
-              title: 'Popular',
-              onPress: () {},
-              buttonText: 'See all',
+          SliverPadding(
+            padding: EdgeInsets.symmetric(horizontal: defaultSize * 20),
+            sliver: SliverToBoxAdapter(
+              child: SectionTitle(
+                title: 'Popular',
+                onPress: () {},
+                buttonText: 'See all',
+              ),
             ),
           ),
           PopularItems(
             onPress: () {
               Navigator.push(
                 context,
-                MaterialPageRoute(builder: (context) => const ProductDetails()),
+                MaterialPageRoute(
+                  builder: (context) => const ProductDetails(),
+                ),
               );
             },
           ),

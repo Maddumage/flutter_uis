@@ -2,6 +2,8 @@ import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
 import 'package:grocery_store/screens/home/banner_card.dart';
 
+import '../../utils/constants.dart';
+
 class BannerItem {
   final String title;
   final String subtitle;
@@ -29,8 +31,9 @@ class _BannersState extends State<Banners> {
 
   @override
   Widget build(BuildContext context) {
+    double defaultSize = MediaQuery.of(context).size.width * kDefaultSizeFactor;
     return Padding(
-      padding: const EdgeInsets.symmetric(vertical: 8.0),
+      padding: EdgeInsets.symmetric(vertical: defaultSize * 8.0),
       child: CarouselSlider(
         items: itemList.map((e) => BannerCard(bannerItem: e)).toList(),
         options: CarouselOptions(

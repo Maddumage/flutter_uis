@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 
+import '../../utils/constants.dart';
+
 class SearchBar extends StatelessWidget {
   const SearchBar({
     Key? key,
@@ -12,18 +14,20 @@ class SearchBar extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    double defaultSize = MediaQuery.of(context).size.width * kDefaultSizeFactor;
     return Padding(
-      padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 8),
+      padding: EdgeInsets.symmetric(
+          horizontal: defaultSize * 20, vertical: defaultSize * 8),
       child: Row(
         children: [
           Expanded(
             child: Container(
-              height: 50,
-              margin: const EdgeInsets.only(right: 20),
-              padding: const EdgeInsets.all(10),
+              height: defaultSize * 50,
+              margin: EdgeInsets.only(right: defaultSize * 20),
+              padding: EdgeInsets.all(defaultSize * 10),
               decoration: BoxDecoration(
                 color: Colors.white,
-                borderRadius: BorderRadius.circular(10),
+                borderRadius: BorderRadius.circular(defaultSize * 8),
                 boxShadow: [
                   BoxShadow(
                     color: Colors.grey.shade200,
@@ -50,11 +54,11 @@ class SearchBar extends StatelessWidget {
             ),
           ),
           Container(
-            height: 50,
-            width: 50,
+            height: defaultSize * 50,
+            width: defaultSize * 50,
             decoration: BoxDecoration(
               color: Colors.green,
-              borderRadius: BorderRadius.circular(10),
+              borderRadius: BorderRadius.circular(defaultSize * 8),
               boxShadow: [
                 BoxShadow(
                   color: Colors.grey.shade200,

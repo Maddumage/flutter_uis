@@ -11,3 +11,5 @@ const kBoxShadow = BoxShadow(
   blurRadius: 40,
   spreadRadius: -5,
 );
+
+const kDefaultSizeFactor = 0.0024;

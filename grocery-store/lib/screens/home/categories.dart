@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 
+import '../../utils/constants.dart';
+
 class CategoryItem {
   final String title;
   final String imgUrl;
@@ -30,10 +32,11 @@ class _CategoriesState extends State<Categories> {
 
   @override
   Widget build(BuildContext context) {
+    double defaultSize = MediaQuery.of(context).size.width * kDefaultSizeFactor;
     return Container(
       width: MediaQuery.of(context).size.width,
-      height: MediaQuery.of(context).size.width * 0.2 + 50,
-      padding: const EdgeInsets.only(left: 20, top: 8, bottom: 8),
+      height: defaultSize * 140,
+      padding: EdgeInsets.symmetric(vertical: defaultSize * 8),
       child: ListView.builder(
         itemBuilder: _buildCategoryItem,
         itemCount: itemList.length,
@@ -44,6 +47,7 @@ class _CategoriesState extends State<Categories> {
 
   Widget _buildCategoryItem(BuildContext context, int index) {
     double size = MediaQuery.of(context).size.width * 0.2;
+    double defaultSize = MediaQuery.of(context).size.width * kDefaultSizeFactor;
     CategoryItem categoryItem = itemList[index];
     return GestureDetector(
       child: Column(
@@ -54,9 +58,9 @@ class _CategoriesState extends State<Categories> {
             child: Container(
               width: size,
               height: size,
-              margin: const EdgeInsets.only(right: 12),
+              margin: EdgeInsets.only(right: defaultSize * 12),
               decoration: BoxDecoration(
-                borderRadius: BorderRadius.circular(10),
+                borderRadius: BorderRadius.circular(defaultSize * 8),
                 color: Colors.teal,
                 image: DecorationImage(
                   image: NetworkImage(categoryItem.imgUrl),
@@ -68,12 +72,12 @@ class _CategoriesState extends State<Categories> {
           Expanded(
             flex: 1,
             child: Padding(
-              padding: const EdgeInsets.all(8.0),
+              padding: EdgeInsets.all(defaultSize * 8),
               child: Text(
                 categoryItem.title,
-                style: const TextStyle(
+                style: TextStyle(
                   color: Colors.black87,
-                  fontSize: 12,
+                  fontSize: defaultSize * 12,
                   fontWeight: FontWeight.w500,
                 ),
                 textAlign: TextAlign.center,
