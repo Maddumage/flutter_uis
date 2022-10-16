@@ -69,6 +69,7 @@ class _ProductDetailsState extends State<ProductDetails> {
                               iconColor: Colors.red,
                             )
                           ],
+                          systemOverlayStyle: kLightSystemOverlayStyle,
                         ),
                         Positioned(
                           bottom: 10,
