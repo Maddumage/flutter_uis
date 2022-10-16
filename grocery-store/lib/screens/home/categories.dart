@@ -36,7 +36,11 @@ class _CategoriesState extends State<Categories> {
     return Container(
       width: MediaQuery.of(context).size.width,
       height: defaultSize * 140,
-      padding: EdgeInsets.symmetric(vertical: defaultSize * 8),
+      padding: EdgeInsets.only(
+        top: defaultSize * 8,
+        bottom: defaultSize * 8,
+        left: defaultSize * 20,
+      ),
       child: ListView.builder(
         itemBuilder: _buildCategoryItem,
         itemCount: itemList.length,

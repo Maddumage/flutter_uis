@@ -5,7 +5,7 @@ import '../../utils/constants.dart';
 class PopularItems extends StatefulWidget {
   const PopularItems({Key? key, required this.onPress}) : super(key: key);
 
-  final Function() onPress;
+  final Function(int index) onPress;
 
   @override
   State<PopularItems> createState() => _PopularItemsState();
@@ -28,7 +28,7 @@ class _PopularItemsState extends State<PopularItems> {
           (BuildContext context, int index) {
             return GestureDetector(
               onTap: () {
-                widget.onPress();
+                widget.onPress(index);
               },
               child: Container(
                 decoration: BoxDecoration(
@@ -51,10 +51,13 @@ class _PopularItemsState extends State<PopularItems> {
                         ),
                       ),
                     ),
-                    Container(
-                      decoration: const BoxDecoration(
-                        image: DecorationImage(
-                          image: AssetImage('assets/images/apple.png'),
+                    Hero(
+                      tag: 'product_image_$index',
+                      child: Container(
+                        decoration: const BoxDecoration(
+                          image: DecorationImage(
+                            image: AssetImage('assets/images/apple.png'),
+                          ),
                         ),
                       ),
                     ),

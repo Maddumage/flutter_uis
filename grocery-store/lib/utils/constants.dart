@@ -13,3 +13,11 @@ const kBoxShadow = BoxShadow(
 );
 
 const kDefaultSizeFactor = 0.0024;
+const kDefaultBorderRadius = 8.0;
+
+const kIconButtonShadow = BoxShadow(
+  offset: Offset(0, 5),
+  spreadRadius: -10,
+  blurRadius: 15,
+  color: Colors.black45,
+);

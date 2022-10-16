@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:grocery_store/screens/productdetails/product_details.dart';
 
 import 'screens/onboarding/onboarding_screen.dart';
 
@@ -12,9 +13,12 @@ class GroceryApp extends StatelessWidget {
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
-    return const MaterialApp(
+    return MaterialApp(
       debugShowCheckedModeBanner: false,
-      home: OnboardingScreen(),
+      home: const OnboardingScreen(),
+      routes: {
+        ProductDetails.routeName: (context) => const ProductDetails(),
+      },
     );
   }
 }

@@ -4,10 +4,10 @@ import 'package:grocery_store/screens/home/banners.dart';
 import 'package:grocery_store/screens/home/categories.dart';
 import 'package:grocery_store/screens/home/popular_items.dart';
 import 'package:grocery_store/screens/home/search_bar.dart';
-import 'package:grocery_store/screens/productdetails/product_details.dart';
 
 import '../../components/section_title.dart';
 import '../../utils/constants.dart';
+import '../productdetails/product_details.dart';
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({Key? key}) : super(key: key);
@@ -46,6 +46,7 @@ class _HomeScreenState extends State<HomeScreen> {
               'assets/icons/dot_menu.svg',
               width: defaultSize * 24,
               height: defaultSize * 24,
+              color: Colors.black,
             ),
             onPressed: () {},
           ),
@@ -95,12 +96,11 @@ class _HomeScreenState extends State<HomeScreen> {
             ),
           ),
           PopularItems(
-            onPress: () {
-              Navigator.push(
+            onPress: (int index) {
+              Navigator.pushNamed(
                 context,
-                MaterialPageRoute(
-                  builder: (context) => const ProductDetails(),
-                ),
+                ProductDetails.routeName,
+                arguments: index,
               );
             },
           ),
